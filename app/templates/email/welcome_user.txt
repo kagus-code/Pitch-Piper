@@ -1,0 +1,9 @@
+
+Hello  {{user.username}},
+
+ Thanks for signing up at Pitch-Piper!
+
+ In life, you only have 60 seconds to impress someone. 1 minute can make or break you. How do we make sure that you use your 1 minute to actually say something meaningful?
+
+Here at Pitch-Piper we allow you to use that one minute wisely. You are able to submit your one minute pitches and other users will vote on them and leave comments to give their feedback on them.
+
