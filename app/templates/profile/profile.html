@@ -9,29 +9,45 @@
   
   <div class="col-md-4">
 
-    {% if user.profile_pic_path %}
-    <div style="background: gray; border-radius: 50px;">
-    <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
-    {%else%}
-    <p>No profile picture</p>
-    {% endif %}
+   <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-12"> 
+        {% if user.profile_pic_path %}
+        
+        <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
+        {%else%}
+        <img src="/app/static/photos/avatar.png" alt="avatar">
+        
+        {% endif %}</div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12"> <h3> {{user.username| capitalize}} </h3></div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-md-12" >   
+        
+        {% if user.bio %}
+        <h3>About me </h3>
+          <p> {{user.bio}}</p>
+        {%else%}
+          <p> {{user.username| capitalize}} has no bio </p>
+        {% endif %}
+        <br> <br>
+        {% if user == current_user %}
+        <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
+    {% endif %}</div>
+    </div>
+
+   </div>
+
 
   </div>
-
-    <h3> {{user.username| capitalize}} </h3>
-
-  
-    {% if user.bio %}
-    <h3>About me </h3>
-      <p> {{user.bio}}</p>
-    {%else%}
-      <p> {{user.username| capitalize}} has no bio </p>
-    {% endif %}
-    <br> <br>
-    {% if user == current_user %}
-    <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
-{% endif %}
-  </div>
+  <div class="col-md-4"></div>
 </div>
 </div>
 {% endblock %}
