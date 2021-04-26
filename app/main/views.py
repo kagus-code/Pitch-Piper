@@ -1,7 +1,7 @@
 from flask import render_template, request,redirect, url_for,abort
-from .forms import UpdateProfile,SubmitPitch
+from .forms import UpdateProfile,SubmitPitch,postComment
 from .. import db,photos
-from ..models import User,Pitch
+from ..models import User,Pitch,Comment
 from . import main
 from flask_login import login_required,current_user
 
@@ -79,6 +79,20 @@ def submit_pitch():
 
     return render_template ('submit_pitch.html',pitch_form=form)    
 
+@main.route('/comment/<int:pitch_id>', methods = ['POST','GET'])
+@login_required
+def comments(pitch_id):
+    form = postComment()
+    pitch = Pitch.query.get(pitch_id)
+    display_pitch_comments = Comment.query.filter_by(pitch_id = pitch_id).all()
+    if form.validate_on_submit():
+        comment = form.comment.data
+        pitch_id = pitch_id
+        user_id = current_user._get_current_object().id
+        new_comment = Comment(comment=comment,pitch_id=pitch_id, user_id = user_id)
+        new_comment.save_comment()
+
+    return render_template('comments.html',comment_form=form,comments = display_pitch_comments,the_pitch=pitch)    
 
         
         

@@ -26,7 +26,11 @@
           <hr>
           <br>
           <p>category : {{category.pitch_category}}</p>
-          <footer class="blockquote-footer">Posted on {{category.posted.strftime('%Y-%m-%d') }}   by  {{category.user.username}}</footer>
+          <footer class="blockquote-footer">Posted on {{category.posted.strftime('%Y-%m-%d') }}   by  {{category.user.username}}
+           <br>
+           <a href="{{url_for('main.comments',pitch_id = category.id)}}" class="btn btn-info btn-sm"> Comment</a>
+
+          </footer>
         </blockquote>
       </div>
     </div>

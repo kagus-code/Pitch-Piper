@@ -11,3 +11,7 @@ class SubmitPitch(FlaskForm):
   pitch_category= SelectField('Category', choices=[('Investor','Investor'),('Competition','Competition'),('Product','Product')],validators=[Required()])
   pitch_post = TextAreaField ('Impress us!!',validators = [Required()])   
   submit = SubmitField('Submit')  
+
+class postComment(FlaskForm):
+  comment   = TextAreaField ('Post a comment',validators = [Required()]) 
+  submit = SubmitField('Submit')
