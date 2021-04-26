@@ -27,13 +27,55 @@
 
 <div class="container-fluid curved upper" style="background-image: url(../static/photos/background.jpg);">
   <div id="top-section" class="container">
-    <button
+   
+    <a style="text-decoration: none;" href="{{url_for('main.submit_pitch')}}"> <button
       type="button"
       class="btn btn-primary btn-lg btn-block"
-      routerLink="/repository"
-    >
-      Click Here to Submit A Pitch
-    </button>
+    >Click Here to Submit A Pitch </button></a>
+      <br>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12" style="color: black;">
+
+
+
+            <ul class="nav nav-pills nav-justified nav-fill" role="tablist">
+              <li class="nav-item" >
+                <a class="btn btn-primary nav-link" data-toggle="tab" href="#all" role="button">All Pitches</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-info nav-link" data-toggle="tab"href="#investor" role="button" style="margin-left: 20px;">Investor</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-success nav-link" data-toggle="tab" href="#competition" role="button"style="margin-left: 20px;">Competition</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-danger nav-link" data-toggle="tab" href="#product" role="button"style="margin-left: 20px;">Product</a>
+
+              </li>
+          </ul>
+
+
+
+
+
+
+
+
+
+            
+            
+            
+            
+
+
+
+          </div>
+        </div>
+      </div>
+
+   
   </div>
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
     <path
@@ -49,19 +91,20 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-md-12">
+    <div class="col-md-12 tab-content">
+       
       
 
       <div  class="container tab-pane active" id="all"><br>
         {{ macro.display(AllPitches) }}
     </div>
-    <div  class="container tab-pane fade" id="event"><br>
+    <div  class="container tab-pane fade" id="investor"><br>
         {{ macro.display(Investor)}}
     </div>
-    <div  class="container tab-pane fade" id="jobs"><br>
+    <div  class="container tab-pane fade" id="competition"><br>
         {{ macro.display(Competition) }}
     </div>
-    <div  class="container tab-pane fade" id="ads"><br>
+    <div  class="container tab-pane fade" id="product"><br>
         {{ macro.display(Product) }}
         
     </div>
