@@ -60,4 +60,52 @@
   <div class="col-md-4"></div>
 </div>
 </div>
+hr4
+<br><br>
+
+<div class="container- fluid">
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+
+{%if user_pitch%}
+   {%for pitch in user_pitch%}
+    <div class="card col-md-12 text-center" style="box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19); font-size: large; margin-left: 20px; margin-top: none;">
+      <div class="card-header">
+        <br>
+        <h3>TITLE : {{pitch.pitch_title}}</h3>
+      </div>
+      <hr>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>{{pitch.pitch_post}}</p>
+          <hr>
+          <br>
+          <p>category : {{pitch.pitch_category}}</p>
+          <footer class="blockquote-footer">Posted on {{pitch.posted.strftime('%Y-%m-%d') }}   by  {{pitch.user.username}}
+           <br>
+
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+    
+{% endfor %}
+{%else%}
+<p>You have no pitches yet</p>
+
+{% endif %}
+
+
+
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+
+
+</div>
+
+
 {% endblock %}
