@@ -22,7 +22,7 @@
             <hr>
             <br>
             <p>category : {{the_pitch.pitch_category}}</p>
-            <footer class="blockquote-footer">Posted on {{the_pitch.posted.strftime('%Y-%m-%d') }}  </footer>
+            <footer class="blockquote-footer">Posted on {{the_pitch.posted.strftime('%Y-%m-%d') }}   by {{the_pitch.user.username}} </footer>
           </blockquote>
         </div>
       </div>
@@ -35,6 +35,42 @@
 
   </div>
 </div>
+<hr>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+   {%if comments %}
+
+   <h1>Comments for this Pitch </h1>
+        {% for post_c in comments%}
+        
+        <ul>
+          <li>
+            <p><b>{{post_c.comment}}</b></p>
+            <p>posted by {{post_c.user_comment.username}}</p>
+          </li>
+        </ul>
+        <br><br><br>
+        {%endfor%}
+   {%else%}  
+   
+   <h1>Comments for this pitch are not available yet</h1>
+   
+   {%endif%}
+
+    </div>
+    <div class="col-md-3">
+
+      {{wtf.quick_form(comment_form)}}
+
+    </div>
+  </div>
+</div>
+
+   
+
+
 
 
 {% endblock%}

@@ -14,4 +14,4 @@ class SubmitPitch(FlaskForm):
 
 class postComment(FlaskForm):
   comment   = TextAreaField ('Post a comment',validators = [Required()]) 
-  submit = SubmitField('Submit')
+  submit = SubmitField('Post')

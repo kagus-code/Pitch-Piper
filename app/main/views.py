@@ -91,6 +91,7 @@ def comments(pitch_id):
         user_id = current_user._get_current_object().id
         new_comment = Comment(comment=comment,pitch_id=pitch_id, user_id = user_id)
         new_comment.save_comment()
+        return redirect(url_for('main.comments',pitch_id=pitch_id))
 
     return render_template('comments.html',comment_form=form,comments = display_pitch_comments,the_pitch=pitch)    
 
