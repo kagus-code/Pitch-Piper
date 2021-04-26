@@ -18,7 +18,7 @@ def register():
         db.session.commit()
 
 
-       # mail_message("Welcome to Pitch-Piper","email/welcome_user",user.email,user=user)
+        mail_message("Welcome to Pitch-Piper","email/welcome_user",user.email,user=user)
 
         
 
