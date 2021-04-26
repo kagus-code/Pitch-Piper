@@ -1,0 +1,15 @@
+.curved {
+  background: #3fbce7;
+  color: black;
+  text-align: center;
+}
+.curved svg {
+  display: block;
+}
+.curved.upper {
+  color: white;
+
+}
+#top-section {
+  padding-top: 5rem;
+}

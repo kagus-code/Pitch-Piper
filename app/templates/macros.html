@@ -1,0 +1,47 @@
+{% macro display(pitches) %}
+
+
+
+
+
+
+
+
+<div class="col-md-12"
+style="font-size: large;">
+  <div class="row">
+    <div style="box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);" >
+
+{%if pitches%}
+{% for category in pitches %}
+    <div class="card">
+      <div class="card-header">
+        <h3>{{category.pitch_title}}</h3>
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>{{category.pitch_post}}</p>
+          <br>
+          <p>category : {{category.pitch_category}}</p>
+          <footer class="blockquote-footer">Posted on {{category.posted.strftime('%Y-%m-%d') }}   by  {{category.user.username}}</footer>
+        </blockquote>
+      </div>
+    </div>
+
+{% endfor %}
+{% else %}
+
+
+  <h2>Category Has 0 posts</h2>
+
+{% endif %}
+    </div>
+
+   </div>
+</div>
+
+
+
+
+{% endmacro%}
