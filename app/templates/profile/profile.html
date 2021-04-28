@@ -42,7 +42,7 @@
         {% endif %}
         <br> <br>
         {% if user == current_user %}
-        <a href="{{url_for('main.update_profile',uname=user.username)}}">Add Bio</a>
+        <a href="{{url_for('main.update_profile',uname=user.username)}}"><button type="button" class="btn btn-outline-success">Edit ptofile</button></a>
     {% endif %}</div>
     </div>
    </div>
@@ -59,6 +59,7 @@
   <div class="col-md-6">
 
 {%if user_pitch%}
+<h1 class="text-center">Your Pitches </h1>
    {%for pitch in user_pitch%}
     <div class="card col-md-12 text-center" style="box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19); font-size: large; margin-left: 20px; margin-top: none;">
