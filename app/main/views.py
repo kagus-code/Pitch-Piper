@@ -1,7 +1,7 @@
 from flask import render_template, request,redirect, url_for,abort
 from .forms import UpdateProfile,SubmitPitch,postComment
 from .. import db,photos
-from ..models import User,Pitch,Comment,Upvote
+from ..models import User,Pitch,Comment,Upvote,Downvote
 from . import main
 from flask_login import login_required,current_user
 
@@ -125,5 +125,35 @@ def upvote_pitch(pitch_id,user_id):
         print('you cant give upvotes')
 
     return redirect(url_for("main.index"))
+
+
+
+@main.route('/downvote_pitch/<int:user_id>/<int:pitch_id>')
+@login_required
+def downvote_pitch(pitch_id,user_id):
+    pitch = Pitch.query.filter_by(user_id =current_user._get_current_object().id).first()
+    user_id = current_user._get_current_object().id
+    print(user_id)
+    print(pitch_id)
+    
+    downvote = Downvote.query.filter_by(pitch_id =pitch_id,user_id=user_id).first()
+    print(downvote)
+
+
+    if downvote == None :        
+        print('we are voting')
+        new_downvote = Downvote(user_id = user_id,pitch_id = pitch_id)
+        new_downvote.add_downvote()
+        print("Added new downvote")
+        return redirect(url_for("main.index"))
+
+    else:
+
+
+        print('you cant give downvotes')
+
+    return redirect(url_for("main.index"))
+
+
 
         

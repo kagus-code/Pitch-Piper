@@ -20,7 +20,7 @@
            <br>
            <a href="{{url_for('main.comments',pitch_id = category.id)}}" class="btn btn-info btn-sm">{{category.comments.count()}} Comments</a>
            <br><hr>
-            <p><a class="btn btn-success" href="{{url_for('main.upvote_pitch',pitch_id=category.id,user_id=category.user.id)}}" role="button"> {{category.upvote.count()}}  upvote</a>         <a class="btn btn-danger" href="#" role="button">downvote</a></p>
+            <p><a class="btn btn-success" href="{{url_for('main.upvote_pitch',pitch_id=category.id,user_id=category.user.id)}}" role="button"> {{category.upvote.count()}}  upvote</a>         <a class="btn btn-danger" href="{{url_for('main.downvote_pitch',pitch_id=category.id,user_id=category.user.id)}}" role="button"> {{category.downvote.count()}} downvote</a></p>
           </footer>
         </blockquote>
       </div>
