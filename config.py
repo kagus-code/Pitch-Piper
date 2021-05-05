@@ -19,11 +19,11 @@ class ProdConfig(Config):
     pass
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kagus:Muraya11$@localhost/pitchapp_test'
+    
 
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kagus:Muraya11$@localhost/pitchapp'
+
     DEBUG = True
 
 
